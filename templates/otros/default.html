@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/static/admin/css/icons.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+    nav {
+    color: #fff;
+    background-color: #e0001b;
+    width: 100%;}
+        a{
+            color: #FFFFFF;
+        }
+
+.white {
+    background-color: #e0001b !important;
+}
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 450px}
+
+        /* Set gray background color and 100% height */
+
+
+        /* Set black background color, white text and some padding */
+        footer.page-footer {
+
+            color: white;
+            padding: 15px;
+        }
+
+        .teal {
+    background-color: #1517d2 !important;
+}
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height:auto;}
+        }
+    </style>
+</head>
+<body>
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="" class="brand-logo">InventFip</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="inicio"><font size=4>Inicio</font></a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+        <li></li>
+      </ul>
+      <a href="" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<div class="container">
+    {% block content %}
+            <!-- Main component for a primary marketing message or call to action -->
+    {% endblock %}
+</div> <!-- /container -->
+
+ <hr class="featurette-divider">
+<!-- FOOTER -->
+<div class="separator"></div>
+    {% block footer %}
+
+ {% endblock %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</body>
+</html>

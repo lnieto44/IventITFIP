@@ -1,0 +1,170 @@
+{% load staticfiles %}
+{% load link_to %}
+
+{% load staticfiles i18n %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% trans "Home" %}{% endblock title %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+
+    <!-- project-style, don't modify materialize.css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/project-style.css' %}">
+
+    </head>
+    <body>
+ <nav>
+    <div class="navbar-fixed red accent-4 white-text text-lighten-2">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">ITFIP</a>
+                <!-- Boton que se activa cuando se tiene resolucion pequeña-->
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i>
+                </a>
+
+                <!-- menu  cuando se tiene resolucion normal-->
+                <ul class="right hide-on-med-and-down">
+                    <li class="{% block homeActive %}{% endblock homeActive %}">
+                        {% link_to namespace='index' text='Inicio' icon_class='material-icons left' icon='home' %}
+                    </li>
+                    {% if user.is_authenticated %}
+                        {% block newItemNavbar %}
+                        {% endblock newItemNavbar %}
+                        <li>{% link_to namespace='logout' text='Salir' %}</li>
+                    {% else %}
+                        <li class="{% block loginActive %}{% endblock loginActive %} waves-effect waves-teal">
+                        {% link_to namespace='login' text='Ingresar' icon_class='material-icons left' icon='lock_open' %}
+
+
+                    {% endif %}
+                </ul>
+
+                 <!-- menu  cuando existe resolucion pequeña es decir se hace clip boton -->
+                <ul class="side-nav" id="mobile-demo">
+                    <div class="userView">
+                        <div class="background"><img src="{% static 'images/header.png' %}">
+                        </div>
+                        <div align="center">
+                            <a a href="#!user"><img class="circle z-depth-5" src="{% static 'images/yuna.jpg' %}">
+                        </a>
+                        <a href="#!name"><span class="red-text name">ITFIP</span></a>
+                        <a href="#!email"><span class="black-text email">itfip@tolinet.com.co</span></a>
+                    </div>
+                        </div>
+                </li>
+                    <li>{% link_to namespace='index' text='Inicio' icon_class='material-icons left' icon='home' %}</li>
+                    <li>{% link_to namespace='login' text='Ingresar' icon_class='material-icons left' icon='lock_open' %}
+                    </li>
+                    <li><a href="#!"><i class="material-icons">home</i>Home</a></li>
+                    <li><a href="#!"><i class="material-icons">list</i>Browse</a></li>
+                    <li><a href="#!"><i class="material-icons">message</i>Messages</a></li>
+                    <li><a href="#!"><i class="material-icons">notifications</i>Notifications</a></li>
+                    <li><div class="divider"></div></li>
+                    <li><a class="subheader">Subheader</a></li>
+                    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </nav>
+
+		<div class="container">
+        <div class="container">
+			<div class="row">
+				<div></div>
+					<h2 class="center">
+						{% block header %}
+						{% endblock header %}
+					</h2>
+					<div class="divider"></div>
+				</div>
+			</div>
+        </div>
+		<div class="container">
+			<div class="row">
+				<div class="col l12">
+					{% block content %}
+					{% endblock content %}
+				</div>
+			</div>
+		</div>
+		{% block footer %}
+		<footer class="page-footer indigo darken-4" >
+				<div class="container">
+            		<div class="row">
+              			<div class="col l6 s6">
+			                <h5 align="center" class="white-text">Contáctanos</h5>
+                            <ul>
+                                <li><a class="grey-text text-lighten-4">Calle 18 Carrera 1ª Barrio/Arkabal Espinal,
+                                    Tolima - Colombia.</a></li>
+                                <li><a class="grey-text text-lighten-4">Tels. (57+8)2483501-2483503-2480014-2480110 Fax:
+                                2483502</a></li>
+                                <li><a class="grey-text text-lighten-4">Atención al ciudadado Ext: 1200</a></li>
+                                <li><a class="grey-text text-lighten-4">e-mail: info@itfip.edu.co</a></li>
+                                <li><a class="grey-text text-lighten-4">Horario de Atención: Lunes a Viernes de 8:00 a.m.
+                                    - 12:00 p.m.</a></li>
+                                <li><a class="grey-text text-lighten-4">y 2:00 p.m. - 6:00 p.m</a></li>
+                            </ul>
+              			</div>
+              			<div class="col l4 offset-l2 s6">
+                			<h5 class="white-text">Plataformas</h5>
+                			<ul>
+			                	<li><a class="grey-text text-lighten-4" href="http://www.itfip.edu.co">ITFIP Inicio</a>
+                                </li>
+			                	<li><a class="grey-text text-lighten-4" href="http://ryca.itfip.edu.co/RYCAWeb/">RYCA</a>
+                                </li>
+			                	<li><a class="grey-text text-lighten-4" href="http://aulavirtual.itfip.edu.co:8081/">Aula Virtual ITFIP</a>
+                                </li>
+			                	<li><a class="grey-text text-lighten-4" href="http://itfip.edu.co/biblioteca-virtual!">Biblioteca Virtual</a>
+                                </li>
+                                <li><a class="grey-text text-lighten-4" href="http://blog.itfip.edu.co/!">Blog Institucional</a>
+                                </li>
+                                <li><a class="grey-text text-lighten-4" href="http://listen2myradio.com/index.php">Emisora</a>
+                                </li>
+			                </ul>
+              			</div>
+                        <div class="col l12 s12">
+                            <h5 align="center" class="white-text">Redes Sociales</h5>
+                            <div align="center">
+                                <a href="https://www.facebook.com/ITFIP" target="new"><img src="{% static 'images/facebook.png'%}">
+                                </a>&nbsp
+                                <a href="https://twitter.com/Itfip" target="new"><img  src="{% static 'images/twitter.png'%}">
+                                </a>&nbsp
+                                <a href="https://plus.google.com/+ItfipEduCoEspinal" target="new"><img  src="{% static 'images/google+.png'%}">
+                                </a>&nbsp
+                                <a href="https://www.youtube.com/channel/UCPsU2_XN0QzZD53C4EXN3tw" target="new"><img  src="{% static 'images/youtube.png'%}">
+                                </a>&nbsp
+                            </div>
+              			</div>
+            		</div>
+          		</div>
+				<div class="footer-copyright   red accent-4 white-text text-lighten-2">
+					<div class="container">
+						<span>Hecho por <a href="https://djangoproject.com">InventFip © </a>2017</span>
+					<span class="right"> Desarrollo <a class="text-lighten-4" href="https://github.com/LeSZ0" target="_blank">ITFIP ©</a></span>
+				</div>
+                </div>
+		</footer>
+		{% endblock footer %}
+
+   <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+    <script type="text/javascript">
+        $( document ).ready(function(){
+            $(".button-collapse").sideNav();
+            $('.slider').slider({full_width: true});
+            $('.carousel.carousel-slider').carousel({full_width: true});
+            $('.parallax').parallax();
+        });
+    </script>
+</body>
+</html>

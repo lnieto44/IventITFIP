@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+
+{% block title %}
+ 	Eliminar activo
+{% endblock title %}
+
+{% block header %}
+	Eliminar activo
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea eliminar la solicitud  {{ form.nombre_activo }}?</h3>
+	<button type="submit" class="btn red" >Sí, eliminar</button>
+	<a  class="btn blue" href="{% url 'activo:index_activo' %}" >Cancelar</a>
+</form>
+{% endblock  %}

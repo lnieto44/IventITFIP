@@ -1,0 +1,35 @@
+{% if url_name != '' %}
+	
+	{% if id == None or id == 0%}
+		{% if icon == '' %}
+			{% if i_class == '' %}
+				<a href="{% url link %}" class="{{ a_class }}">{{ name }}</a>
+			{% else %}	
+				<a href="{% url link %}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+			{% endif %}
+		{% else %}
+			<a href="{% url link %}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+		{% endif %}
+	{% else %}
+		{% if icon == '' %}
+			{% if i_class == '' %}
+				<a href="{% url link id %}" class="{{ a_class }}">{{ name }}</a>
+			{% else %}	
+				<a href="{% url link id %}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+			{% endif %}
+		{% else %}
+			<a href="{% url link id %}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+			
+		{% endif %}
+	{% endif %}
+{% else %}
+	{% if icon == '' %}
+		{% if i_class == '' %}
+			<a href="/{{namespace}}" class="{{ a_class }}">{{ name }}</a>
+		{% else %}	
+			<a href="/{{namespace}}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+		{% endif %}
+	{% else %}
+		<a href="/{{namespace}}" class="{{ a_class }}">{{ name }} <i class="{{i_class}}">{{ icon }}</i></a>
+	{% endif %}
+{% endif %}

@@ -1,0 +1,215 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detalle de ingreso  de activo</title>
+
+
+    <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #e91e63;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #e91e63;
+      box-shadow: none;
+    }
+     nav {
+    color: #fff;
+    background-color: #e0001b;
+    width: 100%;}
+        a{
+            color: #FFFFFF;
+        }
+
+
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 450px}
+
+        /* Set gray background color and 100% height */
+
+
+        /* Set black background color, white text and some padding */
+    footer.page-footer {
+        background-color: #212282;
+        color: white;
+        padding: 15px;
+    }
+        footer.page-footer {
+        background-color: #212282;
+        color: white;
+        padding: 15px;
+    }
+    .light, .page-footer .footer-copyright {
+        font-weight: 300;
+    }
+    .page-footer .footer-copyright {
+        overflow: hidden;
+        min-height: 50px;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 10px 0px;
+        color: rgba(255,255,255,0.8);
+        background-color: rgba(51,51,51,0.08);
+}
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height:auto;}
+  </style>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">InventFip</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="inicio"><font size=4>Incio</font></a></li>
+          <li><a href="about"><font size=4>Acerca de</font></a>
+             </ul>
+    </div>
+  </nav>
+
+<div class="section"></div>
+  <main>
+    <center>
+
+      <div class="section"></div>
+
+
+        <h5 class="indigo-text">Por favor, ingrese el detalle de ingreso de activo</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+
+          <form class="col s12" method="post">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
+
+
+              <div class='row'>
+              <div class='input-field col s12'>
+               {{DetalleIngresoActivoForm.ingreso_activo}}
+                <label for='first_name'>Ingrese el Nombre del activo</label>
+              </div>
+            </div>
+
+
+              <div class='row'>
+              <div class='input-field col s12'>
+                {{DetalleIngresoActivoForm.activo_detalle}}
+                <label for='activo_detalle'>Ingresa Tu activo  detalle</label>
+              </div>
+                </div>
+
+
+              <div class='row'>
+              <div class='input-field col s12'>
+                {{DetalleIngresoActivoForm.cantidad}}
+                <label for='cantidad'>Ingresa Tu cantidad</label>
+              </div>
+                </div>
+
+
+
+              <div class='row'>
+              <div class='input-field col s12'>
+                {{DetalleIngresoActivoForm.precio_activo}}
+                <label for='precio_activo'>Ingresa Tu precio de activo</label>
+              </div>
+            </center>
+          </form>
+            </div>
+          </div>
+        </div>
+
+ </div>
+      </div>
+      <a href="create">Create account</a>
+        </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+</main>
+
+
+ <footer class="page-footer"><div class="container">
+     <div class="container">
+         <div class="row">
+
+
+            <div class="row">
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Plataformas</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="http://www.itfip.edu.co">ITFIP Inicio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://ryca.itfip.edu.co/RYCAWeb/">RYCA</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://aulavirtual.itfip.edu.co:8081/">Aula Virtual ITFIP</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+            <p class="pull-right"><a href="#">VOLVER ARRIBA</a></p>
+     <div class="footer-copyright">
+            <div class="container">
+             <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terminos</a> &middot; <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">Licencia</a>  &middot; </p>
+            </div>
+          </div>
+         </div>
+     </div>
+ </footer>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

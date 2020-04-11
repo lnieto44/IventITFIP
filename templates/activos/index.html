@@ -1,0 +1,75 @@
+{% extends "base/base.html" %}
+{% load link_to %}
+
+{% block title %}
+	Activos
+{% endblock title %}
+
+{% block newItemNavbar %}
+	<li class="active">
+		<a href="{% url 'activo:index_activo' %}" class="brand-logo"><i class="material-icons">perm_identity</i>Activo</a>
+	</li>
+{% endblock newItemNavbar %}
+
+{% block header %}
+	Listado de activos
+{% endblock header %}
+
+{% block content %}
+
+	<div class="col s12 m12 l12">
+        <div>
+		<a href="{% url 'activo:create_activo' %}" text='Nuevos Activos' class='btn green' ><i class="material-icons left">add</i>Nuevo Activo</a>
+		<hr>
+
+		{% if activo %}
+		<table class="striped bordered responsive-table centered">
+			<thead>
+				<th>ID</th>
+				<th>Nombre Activo</th>
+				<th>Precio Del Activo</th>
+
+
+                <th>Fecha Compra</th>
+
+			</thead>
+			<tbody>
+				{% for activo in activo %}
+					<tr>
+						<td>{{ activo.id }}</td>
+						<td>{{ activo.nombre_activo }}</td>
+						<td>{{ activo.precio_activo }}</td>
+
+                        <td>{{ activo.fecha }}</td>
+
+						<td>
+							{% link_to namespace='activo' url_name='view_activo' id_link=activo.id link_class='black-text' icon_class='material-icons' icon='visibility' %}
+							{% link_to namespace='activo' url_name='edit_activo' id_link=activo.id link_class='orange-text' icon_class='material-icons' icon='edit' %}
+                            {% link_to namespace='activo' url_name='delete_activo' id_link=activo.id link_class='red-text' icon_class='material-icons' icon='delete' %}
+						</td>
+					</tr>
+					<!-- Agregar MODAL -->
+					<!--
+                    <div id="modal_delete_{{ activo.id }}" class="modal">
+				    	<div class="modal-content">
+
+				    	</div>
+				    	<div class="modal-footer">
+							<a class="btn green flat" href="{% url 'activo:delete_activo' activo.id %}">Aceptar</a>
+							<a class="btn red modal-close flat">Cancelar</a>
+				    	</div>
+				  	</div>
+                   -->
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+			<h4 class="red-text center">No existen activos cargados</h4>
+		{% endif %}
+	</div>
+    </div>
+
+  <!-- Modal Structure -->
+
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block homeActive %}active{% endblock homeActive %}
+
+{% block header %}
+	InventFip
+{% endblock header %}
+
+{% block content %}
+
+	<div class="conainer">
+	    <div class="row">
+	    	<div class="col s12 m12">
+                 <p class="center" style="line-height: 2em; font-size: 12pt">Es un Control de inventarios de activos fijos que recopila información relevante que describa de manera
+              plena los activos de tal forma que al realizar una consulta esta refleje la condición real del bien, de
+              manera que permita la toma de decisiones pertinentes al caso</p>
+            </div><br>
+          <hr>
+                <div class="col s12 m6">
+                    <div class="card-panel">
+	          		<span>
+	          			<p class="center">{% trans "Seccion Cargo" %}</p>
+	          			<center><a href="{% url 'cargo:index_cargo' %}" class="btn">- {% trans "Acceso" %} -</a></center>
+	          		</span>
+                    </div>
+                </div>
+
+            <div class="col s12 m6">
+                    <div class="card-panel">
+	          		<span>
+	          			<p class="center">{% trans "Seccion Activos" %}</p>
+	          			<center><a href="{% url 'activo:index_activo' %}" class="btn">- {% trans "Acceso" %} -</a></center>
+	          		</span>
+                    </div>
+                </div>
+
+	    </div>
+	</div>
+
+
+{% endblock content %}

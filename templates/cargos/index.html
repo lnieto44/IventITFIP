@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% load link_to %}
+
+{% block title %}
+	cargos
+{% endblock title %}
+
+{% block newItemNavbar %}
+	<li class="active">
+    <a href="{% url 'cargo:index_cargo' %}" class="brand-logo"><i class="material-icons">perm_identity</i>Cargo</a>
+    </li>
+{% endblock newItemNavbar %}
+
+{% block header %}
+	Listado de cargos
+{% endblock header %}
+
+{% block content %}
+
+	<div class="col s12 m12 l12">
+        <div>
+		
+            <a href="{% url 'cargo:create_cargo' %}" text='Nuevos Cargos' class='btn green' ><i class="material-icons left">add</i>Nuevo Cargo</a>
+            <hr>
+
+		{% if cargo %}
+		<table class="striped bordered responsive-table centered">
+			<thead>
+				<th>ID</th>
+				<th>Nombre</th>
+
+				<th>Descripcion</th>
+				<th>Acciones</th>
+			</thead>
+			<tbody>
+				{% for cargo in cargo %}
+					<tr>
+						<td>{{ cargo.id }}</td>
+						<td>{{ cargo.nombre_cargo }}</td>
+
+						<td>{{ cargo.descripcion }}</td>
+						<td>
+							{% link_to namespace='cargo' url_name='view_cargo' id_link=cargo.id link_class='black-text' icon_class='material-icons' icon='visibility' %}
+							{% link_to namespace='cargo' url_name='edit_cargo' id_link=cargo.id link_class='orange-text' icon_class='material-icons' icon='edit' %}
+                            {% link_to namespace='cargo' url_name='delete_cargo' id_link=cargo.id link_class='red-text' icon_class='material-icons' icon='delete' %}
+						</td>
+					</tr>
+					<!-- Agregar MODAL -->
+					<!--
+                    <div id="modal_delete_{{ cargo.id }}" class="modal">
+				    	<div class="modal-content">
+
+				    	</div>
+				    	<div class="modal-footer">
+							<a class="btn green flat" href="{% url 'cargo:delete_cargo' cargo.id %}">Aceptar</a>
+							<a class="btn red modal-close flat">Cancelar</a>
+				    	</div>
+				  	</div>
+                   -->
+				{% endfor %}
+			</tbody>
+		</table>
+		{% else %}
+			<h4 class="red-text center">No existen cargos cargados</h4>
+		{% endif %}
+	</div>
+    </div>
+
+  <!-- Modal Structure -->
+
+</div>
+{% endblock content %}

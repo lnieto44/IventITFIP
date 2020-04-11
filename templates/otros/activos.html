@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Creacion de Activos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+        <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+    nav {
+    color: #fff;
+    background-color: #e0001b;
+    width: 100%;}
+        a{
+            color: #FFFFFF;
+        }
+
+
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 450px}
+
+        /* Set gray background color and 100% height */
+
+
+        /* Set black background color, white text and some padding */
+        footer.page-footer {
+            background-color: #212282;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height:auto;}
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">InventFip</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="inicio"><font size=4>Incio</font></a></li>
+          <li><a href="about"><font size=4>Acerca de</font></a></li>
+
+
+      </ul>
+    </div>
+  </nav>
+  <div class="section"></div>
+    <div class="container">
+    <div class="row">
+    <main>
+<center>
+    <div class="section"></div>
+    <div class="z-depth-1 grey lighten-4 row" style="display:
+	    inline-block;padding: 20px 80px 0px 80px; border: 15px solid #EEE;">
+        <form action="{% url 'activos' %}" method="post">
+            {% csrf_token %}
+            <h4>Registrar Activo</h4>
+
+            <div class="row">
+
+    		    <div class="input-field col s12">
+
+    		    <label for="Nombre_activo">Nombre del Activo</label>
+    		    {{ activo_form.nombre_activo }}
+
+    		    </div>
+    	    </div>
+            <div class="row">
+
+    		    <div class="input-field col s12">
+
+    		    <label for="Precio_activo">Precio del Activo</label>
+    		    {{ activo_form.precio_activo }}
+
+    		    </div>
+    	    </div>
+            <div class="row">
+
+    		    <div class="input-field col s12">
+
+    		    <label for="Estado_activo">Estado del Activo</label>
+    		    {{ activo_form.estado_activo }}
+
+    		    </div>
+    	    </div>
+            <div class="row">
+
+    		    <div class="input-field col s12">
+
+    		    <label for="Existencias">Existencias del Activo</label>
+    		    {{ activo_form.existencias }}
+
+    		    </div>
+    	    </div>
+            <div class="row">
+
+    		    <div class="input-field col s12">
+
+    		    <label for="Fecha">Fecha de registro</label>
+    		    {{ activo_form.fecha }}
+
+    		    </div>
+    	    </div>
+
+            <button class="waves-effect waves-light btn" type="submit">Registrar Activo</button>
+        </form>
+    </div>
+</center>
+        <div class="section"></div>
+    <div class="section"></div>
+  </main>
+    </div>
+</div>
+ <footer class="page-footer"><div class="container">
+     <div class="container">
+         <div class="row">
+
+
+            <div class="row">
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Plataformas</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="http://www.itfip.edu.co">ITFIP Inicio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://ryca.itfip.edu.co/RYCAWeb/">RYCA</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://aulavirtual.itfip.edu.co:8081/">Aula Virtual ITFIP</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+            <p class="pull-right"><a href="#">VOLVER ARRIBA</a></p>
+     <div class="footer-copyright">
+            <div class="container">
+             <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacidad</a> &middot; <a href="#">Terminos</a> &middot; <a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">Licencia</a>  &middot; </p>
+            </div>
+          </div>
+         </div>
+     </div>
+ </footer>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+</body>
+</html>

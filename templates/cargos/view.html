@@ -1,0 +1,62 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load link_to %}
+
+{% block title %}
+	{{ cargo.nombre_cargo }}
+{% endblock title %}
+
+{% block newItemNavbar %}
+	<li class="active">
+		{% link_to namespace='cargo' url_name='index_cargo' text='Cargo' icon_class='material-icons left' icon='perm_identity' %}
+	</li>
+{% endblock newItemNavbar %}
+
+{% block header %}
+	Vista detallada
+{% endblock header %}
+
+{% block content %}
+
+	{% if messages %}
+
+		{% for message in messages %}
+
+	<p id='notice' {% if message.tags == 'success' %} class="alert alert-success" {% endif %}>{% blocktrans %}{{ message }}{% endblocktrans %}</p>
+
+		{% endfor %}
+
+	{% endif %}
+
+
+	<table class="striped responsive-table centered">
+
+		<tbody>
+
+			<tr>
+				<td><strong>Nombre</strong></td>
+				<td>{{ cargo.nombre_cargo }}</td>
+			</tr>
+
+			<tr>
+				<td><strong>Descripcion</strong></td>
+				<td>{{ cargo.descripcion }}</td>
+			</tr>
+
+		</tbody>
+
+	</table>
+    <br>
+    <div align="center">
+        <div class="col col l12 s12">
+            <span>
+                <a href="{% url 'cargo:create_cargo' %}" class="btn">
+                    <i class="material-icons right">send</i> - {% trans "Agregar Cargo" %} -</a>
+                <a href="{% url 'cargo:index_cargo' %}" class="btn red ">
+                    <i class="material-icons right">send</i> - {% trans "Listado cargos" %} -</a>
+
+            </span>
+        </div>
+    </div>
+
+{% endblock content %}

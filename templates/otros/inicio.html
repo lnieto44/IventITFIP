@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block homeActive %}active{% endblock homeActive %}
+
+{% block header %}
+	InventFip
+{% endblock header %}
+
+{% block content %}
+    <!-- START THE FEATURETTES -->
+  <section>
+            <div class="col s12">
+                 <div class="slider">
+                     <ul class="slides">
+                         <li><img src="{% static 'images/presentacion.jpg' %}"> <!-- random image -->
+                             <div class="caption center-align">
+                                 <h3></h3>
+                                 <h5 class="light grey-text text-lighten-3"></h5>
+                             </div>
+                         </li>
+                         <li><img src="{% static 'images/educacion.jpg' %}"> <!-- random image -->
+                             <div class="caption center-align">
+                                 <h3></h3>
+                                 <h5 class="light grey-text text-lighten-3"></h5>
+                             </div>
+                         </li>
+                         <li><img src="{% static 'images/proceso_de_paz.jpg' %}"> <!-- random image -->
+                             <div class="caption left-align"><h3></h3>
+                                 <h5 class="light grey-text text-lighten-3"></h5>
+                             </div>
+                         </li>
+                         <li><img src="{% static 'images/Graduados.jpg' %}"> <!-- random image -->
+                             <div class="caption right-align"><h3></h3>
+                                 <h5 class="light grey-text text-lighten-3"></h5>
+                             </div>
+                         </li>
+                     </ul>
+                 </div>
+            </div>
+        </div>
+    </section>
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+ {% endblock content %}
+

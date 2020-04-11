@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% block tite %}Login{% endblock tite %}
+
+{% block header %}
+	Completar los campos
+{% endblock header %}
+
+{% block loginActive %}active{% endblock loginActive %}
+
+{% block content %}
+	{% if message %}
+		<p class="red-text">{{ message }}</p>
+	{% endif %}
+	<form action="" method="post"> {% csrf_token %}
+		<div class="input-field">
+			<i class="material-icons prefix">account_circle</i>
+			<label for="{{ form.username.name }}">{{ form.username.label }}</label>
+			{{ form.username }}
+		</div>
+		<div class="input-field">
+			<i class="material-icons prefix">vpn_key</i>
+			<label for="{{ form.password.name }}">{{ form.password.label }}</label>
+			{{ form.password }}
+		</div>
+		<!-- <div class="input-field">
+			<a href="">Olvidé mi contraseña</a>
+		</div> -->
+		<div class="input-field">
+			<a href="">Olvidé mi usuario</a>
+		</div>
+		<div class="input-field">
+			<input type="submit" value="Iniciar sesión" class="btn green">
+		</div>
+	</form><br>
+{% endblock content %}

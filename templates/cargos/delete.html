@@ -1,0 +1,19 @@
+{% extends "base/base.html" %}
+
+{% block title %}
+ 	Eliminar cargo
+{% endblock title %}
+
+{% block header %}
+	Eliminar cargo
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea eliminar la solicitud  {{ form.nombre_cargo  }}?</h3>
+	<button type="submit" class="btn red" >Sí, eliminar</button>
+	<a  class="btn blue" href="{% url 'cargo:index_cargo' %}" >Cancelar</a>
+</form>
+{% endblock  %}
+

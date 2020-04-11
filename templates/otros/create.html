@@ -1,0 +1,107 @@
+
+{% extends "base/base.html" %}
+{% load i18n %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block homeActive %}active{% endblock homeActive %}
+
+{% block header %}
+	InventFip
+{% endblock header %}
+
+{% block content %}
+ <form action="{% url 'create' %}" method="post">
+  <div class="section"></div>
+     {% csrf_token %}
+  <main>
+    <center>
+
+      <div class="section"></div>
+
+      <h5 class="indigo-text">Ingrese Usuario Nuevo</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+          <form class="col s12" method="post">
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+            </div>
+
+           <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12 m12 ll2">
+          <i class="material-icons prefix">person_pin</i>
+          {{ user_form.first_name }}
+          <label for="usename">Nombres</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">person_pin</i>
+          {{ user_form.last_name }}
+          <label for="lastname">Apellidos</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12 required">
+        <i class="material-icons prefix">account_box</i>
+        {{ user_form.username }}
+        <label for="icon_prefix">Nombre de usuario</label>
+
+    </div>
+</div>
+
+      <div class="row">
+    <div class="input-field col s12 required" id="id_password_container">
+        <i class="material-icons prefix">lock</i>
+       <input id="password1" type="password" class="validate">
+        <label for="id_password1">Contraseña</label>
+    </div>
+</div>
+       <div class="row">
+    <div class="input-field col s12 required" id="id_password_container">
+        <i class="material-icons prefix">lock</i>
+        <input id="password2" type="password" class="validate">
+        <label for="id_password2">Confirme Contraseña</label>
+    </div>
+</div>
+      <div class="row">
+        <div class="input-field col s12">
+         {{ user_form.email }}
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+
+
+      <div class='row'>
+              <div class='input-field col s12'>
+             {{ profile_form.fecha_nacimiento  }}
+                <label for='email'>Fecha de Nacimiento</label>
+              </div>
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+
+                 <button class="btn waves-effect green" type="submit" name="action">Crear Usuario<i class="material-icons right">send</i></button>
+              </div>
+            </center>
+          </form>
+        </div>
+    </form>
+  </div>
+
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+{% endblock content %}

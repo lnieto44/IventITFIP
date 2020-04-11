@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+{% load link_to %}
+
+{% block title %}
+    Crear activo
+{% endblock title %}
+
+{% block newItemNavbar %}
+	<li class="active">
+		{% link_to namespace='activo' url_name='index_activo' text='Activo' icon_class='material-icons left' icon='perm_identity' %}
+	</li>
+{% endblock newItemNavbar %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block content %}
+	<form action="." method='post'>{% csrf_token %}
+		<div class="input-field col l12">
+			{{ form.nombre_activo }}
+			<label for="name">{{ form.nombre_activo.label }}</label>
+		</div>
+		<div class="input-field col l12">
+			{{ form.precio_activo }}
+			<label for="{{ form.precio_activo.nombre_activo}}">{{ form.precio_activo.label }}</label>
+		</div>
+
+
+        <div class="input-field col l12">
+			{{ form.fecha}}
+			<label for="{{ form.fecha.nombre_activo }}">{{ form.fecha.label }}</label>
+		</div>
+
+
+    		<div class="col l12">
+			<br>
+			<button class="btn waves-effect waves-light" type="submit" name="action">{% block action %}Crear activo{% endblock action %}
+				<i class="material-icons right">send</i>
+			</button>
+		</div>
+
+	</form>
+{% endblock content %}

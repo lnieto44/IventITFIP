@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+{% load i18n %}
+{% load link_to %}
+
+{% block title %}
+	{{ activo.nombre_activo }}
+{% endblock title %}
+
+{% block newItemNavbar %}
+	<li class="active">
+		{% link_to namespace='activo' url_name='index_activo' text='Activo' icon_class='material-icons left' icon='perm_identity' %}
+	</li>
+{% endblock newItemNavbar %}
+
+{% block header %}
+	Vista detallada
+{% endblock header %}
+
+{% block content %}
+
+	{% if messages %}
+
+		{% for message in messages %}
+
+	<p id='notice' {% if message.tags == 'success' %} class="alert alert-success" {% endif %}>{% blocktrans %}{{ message }}{% endblocktrans %}</p>
+
+		{% endfor %}
+
+	{% endif %}
+
+
+	<table class="striped responsive-table centered">
+
+		<tbody>
+
+			<tr>
+				<td><strong>Nombre</strong></td>
+				<td>{{ activo.nombre_activo }}</td>
+			</tr>
+			<tr>
+				<td><strong>Precio</strong></td>
+				<td>{{ activo.precio_activo}}</td>
+			</tr>
+
+            <tr>
+				<td><strong>Fecha</strong></td>
+				<td>{{ activo.fecha }}</td>
+			</tr>
+
+
+		</tbody>
+
+	</table>
+    <br>
+    <div align="center">
+        <div class="col col l12 s12">
+            <span>
+                <a href="{% url 'activo:create_activo' %}" class="btn">
+                    <i class="material-icons right">send</i> - {% trans "Agregar Activo" %} -</a>
+                <a href="{% url 'activo:index_activo' %}" class="btn red ">
+                    <i class="material-icons right">send</i> - {% trans "Listado Activos" %} -</a>
+
+            </span>
+        </div>
+    </div>
+
+{% endblock content %}

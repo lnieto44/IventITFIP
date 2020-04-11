@@ -1,0 +1,17 @@
+
+	<form method='post'>{% csrf_token %}
+		<div class="input-field col l12">
+			{{ h.name }}
+			<label for="name">{{ h.name.label }}</label>
+		</div>
+
+		<div class="input-field col l12">
+			{{ h.descripcion}}
+			<label for="{{ h.descripcion.name }}">{{ h.descripcion.label }}</label>
+		</div>
+		<div class="col l12">
+			<button id="crear" class="btn waves-effect waves-light" type="submit" name="action">{% block action %}Crear Cargo{% endblock action %}
+				<i class="material-icons right">send</i>
+			</button>
+		</div>
+	</form>
